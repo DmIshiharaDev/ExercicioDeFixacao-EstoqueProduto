@@ -18,20 +18,43 @@ internal class Program
         Console.WriteLine();
         Console.WriteLine("Dados do produto: \n" + p);
 
-        Console.WriteLine();
-        Console.Write("Digite a quantidade a ser adicionado ao estoque: ");
-        int qte = int.Parse((string) Console.ReadLine());
-        p.AdicionarProdutos(qte);
+      
+        while (true)
+        {
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine();
+            Console.Write("Deseja adicionar produto, remover produto ou sair? \n" +
+            "Adcionar (1) - Remover (2) - Sair (3): ");
+            int opcao = int.Parse((string)Console.ReadLine());
 
-        Console.WriteLine();
-        Console.WriteLine("Dados atualizados do produto: \n" + p);
+            if (opcao == 1)
+            {
+                Console.WriteLine();
+                Console.Write("Digite a quantidade a ser adicionado ao estoque: ");
+                int qte1 = int.Parse((string)Console.ReadLine());
+                p.AdicionarProdutos(qte1);
 
-        Console.WriteLine();
-        Console.Write("Digite a quantidade a ser removido ao estoque: ");
-        int qte1 = int.Parse((string)Console.ReadLine());
-        p.RetirarProduto(qte1);
+                Console.WriteLine();
+                Console.WriteLine("Dados atualizados do produto: \n" + p);
+                
+            }
+            else if (opcao == 2)
+            {
+                Console.WriteLine();
+                Console.Write("Digite a quantidade a ser removido ao estoque: ");
+                int qte1 = int.Parse((string)Console.ReadLine());
+                p.RetirarProduto(qte1);
 
-        Console.WriteLine();
-        Console.WriteLine("Dados atualizados do produto: \n" + p);
+                Console.WriteLine();
+                continue;
+            }
+            else if (opcao == 3) 
+            {
+                Console.WriteLine();
+                Console.WriteLine("Programa encerrado...");
+                break;
+            }
+        }
+        Console.WriteLine("Até logo!");
     }
 }
